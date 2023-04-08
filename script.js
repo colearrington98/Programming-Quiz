@@ -43,6 +43,8 @@ function startQuiz() {
   startButton.remove();
   timer = setInterval(updateTimer, 1000);
   showQuestion();
+  document.getElementById("timer").style.display = "block";
+  document.getElementById("timer").innerHTML = "Time: " + timeLeft;
 }
  
 function updateTimer() {
@@ -52,6 +54,7 @@ function updateTimer() {
     clearInterval(timer);
     gameOver();
   }
+  document.getElementById("timer").innerHTML = "Time: " + timeLeft;
 }
  
 function showQuestion() {
