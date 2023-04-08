@@ -1,41 +1,25 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>JavaScript Quiz</title>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <header>
-      <h1>JavaScript Quiz</h1>
-    </header>
-    <main>
-      <div id="start-screen">
-        <p>Test your knowledge of JavaScript fundamentals with this timed quiz. Click the button below to start.</p>
-        <button id="start-btn">Start Quiz</button>
-      </div>
-      <div id="quiz-screen">
-        <p id="question"></p>
-        <form id="answer-form">
-          <label><input type="radio" name="answer" value="0"> <span id="answer0"></span></label><br>
-          <label><input type="radio" name="answer" value="1"> <span id="answer1"></span></label><br>
-          <label><input type="radio" name="answer" value="2"> <span id="answer2"></span></label><br>
-          <label><input type="radio" name="answer" value="3"> <span id="answer3"></span></label><br>
-          <button type="submit">Submit</button>
-        </form>
-        <p>Time left: <span id="time-left"></span></p>
-      </div>
-      <div id="game-over-screen">
-        <p>Game over! Your score is <span id="score"></span>.</p>
-        <form id="initials-form">
-          <label>Enter your initials:</label><br>
-          <input type="text" id="initials" maxlength="3" pattern="[A-Z]{3}" required><br>
-          <button type="submit">Save</button>
-        </form>
-        <button id="restart-btn">Restart Quiz</button>
-      </div>
-    </main>
-    <script src="quiz.js"></script>
-  </body>
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript Fundamentals Quiz</h1>
+        <div id="quiz">
+            <button id="start">Start Quiz</button>
+        </div>
+        <div id="results" style="display:none;">
+            <h2>Game Over!</h2>
+            <p>Your score: <span id="score"></span></p>
+            <label for="initials">Enter your initials:</label>
+            <input type="text" id="initials">
+            <button id="save">Save</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
