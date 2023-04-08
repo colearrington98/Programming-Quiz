@@ -104,7 +104,7 @@ function saveScore() {
     alert("Please enter your initials.");
   }
   alert ("Score saved!");
-  window.location.href = "highscore.html"; // Redirect to highscore.html
+  window.location.href = "highscores.html"; // Redirect to highscores.html
 }
  
 startButton.addEventListener("click", startQuiz);
