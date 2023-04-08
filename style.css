@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    text-align: center;
+    background-color: #3F51B5;
+    color: white;
+    padding: 1em;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  #start-screen, #quiz-screen, #game-over-screen {
+    display: none;
+  }
+  
+  #start-screen, #game-over-screen {
+    text-align: center;
+    padding: 1em;
+  }
+  
+  #quiz-screen {
+    padding: 1em;
+    border: 1px solid #ccc;
+  }
+  
+  label {
+    display: block;
+  }
+  
+  #time-left {
+    font-weight: bold;
+  }
+  
+  #initials {
+    text-transform: uppercase;
+  }
+  
