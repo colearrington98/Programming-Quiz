@@ -27,18 +27,19 @@ const quizData = [
     correctAnswerIndex: 2,
   },
 ];
- 
+
 const startButton = document.getElementById("start");
 const quiz = document.getElementById("quiz");
 const results = document.getElementById("results");
 const scoreElement = document.getElementById("score");
 const initialsInput = document.getElementById("initials");
 const saveButton = document.getElementById("save");
- 
+
 let currentQuestionIndex = 0;
-let timeLeft = 60; // Adjust the time as needed
+let correctAnswers = 0;
+let timeLeft = 60;
 let timer;
- 
+
 function startQuiz() {
   startButton.remove();
   timer = setInterval(updateTimer, 1000);
@@ -46,7 +47,7 @@ function startQuiz() {
   document.getElementById("timer").style.display = "block";
   document.getElementById("timer").innerHTML = "Time: " + timeLeft;
 }
- 
+
 function updateTimer() {
   if (timeLeft > 0) {
     timeLeft--;
@@ -56,7 +57,7 @@ function updateTimer() {
   }
   document.getElementById("timer").innerHTML = "Time: " + timeLeft;
 }
- 
+
 function showQuestion() {
   if (currentQuestionIndex < quizData.length) {
     const questionData = quizData[currentQuestionIndex];
@@ -74,41 +75,49 @@ function showQuestion() {
     gameOver();
   }
 }
- 
+
 function handleAnswerClick(isCorrect) {
-  if (!isCorrect) {
+  if (isCorrect) {
+    correctAnswers++;
+  } else {
     timeLeft -= 10;
   }
   currentQuestionIndex++;
   showQuestion();
 }
- 
+
 function gameOver() {
+  clearInterval(timer);
   quiz.style.display = "none";
   results.style.display = "block";
-  scoreElement.innerText = timeLeft;
+  const maxScore = quizData.length;
+  const score = Math.round((correctAnswers / maxScore) * 100); // Calculate score as a percentage
+  scoreElement.innerText = score;
 }
- 
+
 function saveScore() {
   const initials = initialsInput.value;
   if (initials) {
     const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-    const newScore = { initials, score: timeLeft };
+    const maxScore = quizData.length;
+    const score = Math.round((correctAnswers / maxScore) * 100); // Calculate score as a percentage
+    const newScore = { initials, score: score };
     highScores.push(newScore);
     highScores.sort((a, b) => b.score - a.score);
     highScores.splice(5);
     localStorage.setItem("highScores", JSON.stringify(highScores));
-    alert("Score saved!");
-    location.reload();
+    window.location.href = "highscores.html";
+    alert("Your score has been saved!");
   } else {
     alert("Please enter your initials.");
   }
-  alert ("Score saved!");
-  window.location.href = "highscores.html"; // Redirect to highscores.html
 }
- 
+
+
 startButton.addEventListener("click", startQuiz);
 saveButton.addEventListener("click", saveScore);
+
+
 
 
 
