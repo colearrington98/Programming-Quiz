@@ -1,5 +1,8 @@
 # JavaScript Code Quiz
 
+![Screenshot 2023-05-05 235057](https://user-images.githubusercontent.com/119268105/236600596-6801e468-9259-485c-833c-9ae1aa388bd5.png)
+
+
 This project is a simple, timed quiz on JavaScript fundamentals, designed for coding boot camp students to gauge their progress compared to their peers. The quiz stores high scores, allowing users to keep track of their performance.
 
 ## Features
